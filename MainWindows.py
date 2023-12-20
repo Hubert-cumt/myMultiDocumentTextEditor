@@ -34,36 +34,39 @@ class MainWindow(QMainWindow, QWidget):
         # 工具栏
         self.file_toolbar = self.addToolBar('文件')
         self.edit_toolbar = self.addToolBar('编辑')
+        self.del_toolbar = self.addToolBar('删除')
+        self.view_toolbar = self.addToolBar('视图')
+        self.search_toolbar = self.addToolBar('搜索')
 
         # 状态栏
         self.status_bar = self.statusBar()
 
         # ***************动作初始化***************
         # 文件动作
-        self.new_action = QAction('新建', self)
-        self.open_action = QAction('打开', self)
-        self.save_action = QAction('保存', self)
-        self.save_as_action = QAction('另存为..', self)
+        self.action_new = QAction('新建', self)
+        self.action_open = QAction('打开', self)
+        self.action_save = QAction('保存', self)
+        self.action_save_as = QAction('另存为..', self)
         # 文本操作动作
-        self.cut_action = QAction('剪切', self)
-        self.copy_action = QAction('复制', self)
-        self.paste_action = QAction('粘贴', self)
+        self.action_cut = QAction('剪切', self)
+        self.action_copy = QAction('复制', self)
+        self.action_paste = QAction('粘贴', self)
         # 字符设置动作
-        self.font_action = QAction('字体', self)
-        self.color_action = QAction('颜色', self)
+        self.action_font = QAction('字体', self)
+        self.action_color = QAction('颜色', self)
         # 布局动作
-        self.actionHorizontal = QAction('水平', self)
-        self.actionVertical = QAction('垂直', self)
-        self.actionPile = QAction('平铺', self)
-        self.actionLeft = QAction('左对齐', self)
-        self.actionRight = QAction('右对齐', self)
-        self.actionCenter = QAction('居中', self)
+        self.action_horizontal = QAction('水平', self)
+        self.action_vertical = QAction('垂直', self)
+        self.action_pile = QAction('平铺', self)
+        self.action_left = QAction('左对齐', self)
+        self.action_right = QAction('右对齐', self)
+        self.action_center = QAction('居中', self)
         # 修改动作
-        self.actionDelete = QAction('删除', self)
-        self.actionRecover = QAction('撤销', self)
+        self.action_delete = QAction('删除', self)
+        self.action_recover = QAction('撤销', self)
         # 特殊动作
-        self.about_action = QAction('关于', self)
-        self.search_action = QAction('搜索', self)
+        self.action_about = QAction('关于', self)
+        self.action_search = QAction('搜索', self)
 
         # 剪贴板设置
         self.mime_data = QMimeData()
@@ -71,41 +74,56 @@ class MainWindow(QMainWindow, QWidget):
 
         # ***************控件初始化***************
         self.menu_init()
+        self.toolbar_init()
 
     def menu_init(self):
         # 文件动作绑定
-        self.file_menu.addAction(self.new_action)
-        self.file_menu.addAction(self.open_action)
-        self.file_menu.addAction(self.save_action)
-        self.file_menu.addAction(self.save_as_action)
+        self.file_menu.addAction(self.action_new)
+        self.file_menu.addAction(self.action_open)
+        self.file_menu.addAction(self.action_save)
+        self.file_menu.addAction(self.action_save_as)
         self.file_menu.addSeparator()
 
         # 编辑动作绑定
-        self.edit_menu.addAction(self.cut_action)
-        self.edit_menu.addAction(self.copy_action)
-        self.edit_menu.addAction(self.paste_action)
+        self.edit_menu.addAction(self.action_cut)
+        self.edit_menu.addAction(self.action_copy)
+        self.edit_menu.addAction(self.action_paste)
         self.edit_menu.addSeparator()
-        self.edit_menu.addAction(self.font_action)
-        self.edit_menu.addAction(self.color_action)
+        self.edit_menu.addAction(self.action_font)
+        self.edit_menu.addAction(self.action_color)
 
         # 视图动作绑定
-        self.view_menu.addAction(self.actionPile)
-        self.view_menu.addAction(self.actionHorizontal)
-        self.view_menu.addAction(self.actionVertical)
+        self.view_menu.addAction(self.action_pile)
+        self.view_menu.addAction(self.action_horizontal)
+        self.view_menu.addAction(self.action_vertical)
 
         # 搜索动作绑定
-        self.search_menu.addAction(self.search_action)
+        self.search_menu.addAction(self.action_search)
 
         # 关于动作绑定
-        self.about_menu.addAction(self.about_action)
+        self.about_menu.addAction(self.action_about)
 
-
-
-
-
-
-
-
+    def toolbar_init(self):
+        # 文件工具栏动作绑定
+        self.file_toolbar.addAction(self.action_new)
+        self.file_toolbar.addAction(self.action_open)
+        self.file_toolbar.addAction(self.action_save)
+        self.file_toolbar.addAction(self.action_save_as)
+        # 编辑工具栏动作绑定
+        self.edit_toolbar.addAction(self.action_cut)
+        self.edit_toolbar.addAction(self.action_copy)
+        self.edit_toolbar.addAction(self.action_paste)
+        self.edit_toolbar.addAction(self.action_font)
+        self.edit_toolbar.addAction(self.action_color)
+        # 视图工具栏动作绑定
+        self.view_toolbar.addAction(self.action_left)
+        self.view_toolbar.addAction(self.action_center)
+        self.view_toolbar.addAction(self.action_right)
+        # 删除 / 撤销 工具栏动作绑定
+        self.del_toolbar.addAction(self.action_delete)
+        self.del_toolbar.addAction(self.action_recover)
+        # 搜索工具栏动作绑定
+        self.search_toolbar.addAction(self.action_search)
 
 
 if __name__ == '__main__':
