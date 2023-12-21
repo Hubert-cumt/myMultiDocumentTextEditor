@@ -46,9 +46,9 @@ def toolbar_init(window):
     window.view_toolbar.addAction(window.action_left)
     window.view_toolbar.addAction(window.action_center)
     window.view_toolbar.addAction(window.action_right)
-    # 删除 / 撤销 工具栏动作绑定
-    window.del_toolbar.addAction(window.action_delete)
-    window.del_toolbar.addAction(window.action_recover)
+    # 重做 / 撤销 工具栏动作绑定
+    window.del_toolbar.addAction(window.action_undo)
+    window.del_toolbar.addAction(window.action_redo)
     # 搜索工具栏动作绑定
     window.search_toolbar.addAction(window.action_search)
 

@@ -6,7 +6,9 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QAction, QFile
     QFontDialog, QColorDialog, QVBoxLayout, QWidget, QFileDialog, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, \
     QHBoxLayout, QVBoxLayout
-import Init
+
+
+
 
 class MainWindow(QMainWindow, QWidget):
     def __init__(self):
@@ -18,7 +20,7 @@ class MainWindow(QMainWindow, QWidget):
 
         # ***************主窗体设置***************
         self.setWindowTitle("MDT Editor by 16214911")
-        self.setWindowIcon(QIcon('icons/edit.png'))
+        self.setWindowIcon(QIcon('icons/main.png'))
         self.setCentralWidget(self.mdiArea)
         self.resize(1200, 800)
 
@@ -60,8 +62,8 @@ class MainWindow(QMainWindow, QWidget):
         self.action_right = QAction('右对齐', self)
         self.action_center = QAction('居中', self)
         # 修改动作
-        self.action_delete = QAction('删除', self)
-        self.action_recover = QAction('撤销', self)
+        self.action_undo = QAction('撤销', self)
+        self.action_redo = QAction('重做', self)
         # 特殊动作
         self.action_about = QAction('关于', self)
         self.action_search = QAction('搜索', self)
@@ -71,13 +73,13 @@ class MainWindow(QMainWindow, QWidget):
         self.clipBoard = QApplication.clipboard()
 
         # ***************控件初始化***************
+        import ActionInit
+        import Init
+
         Init.menu_init(self)
         Init.toolbar_init(self)
         Init.status_bar_init(self)
-
-
-
-
+        ActionInit.action_init(self)
 
 
 if __name__ == '__main__':
