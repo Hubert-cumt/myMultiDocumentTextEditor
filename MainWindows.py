@@ -73,13 +73,16 @@ class MainWindow(QMainWindow, QWidget):
         self.clipBoard = QApplication.clipboard()
 
         # ***************控件初始化***************
-        import ActionInit
         import Init
+        import ActionInit
+        import FuncLayout
+        import ActionBind
 
         Init.menu_init(self)
         Init.toolbar_init(self)
         Init.status_bar_init(self)
         ActionInit.action_init(self)
+        ActionBind.action_bind(self)
 
 
 if __name__ == '__main__':
