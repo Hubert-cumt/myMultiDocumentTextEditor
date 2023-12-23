@@ -8,8 +8,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButto
     QHBoxLayout, QVBoxLayout
 
 
-
-
 class MainWindow(QMainWindow, QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -75,7 +73,6 @@ class MainWindow(QMainWindow, QWidget):
         # ***************控件初始化***************
         import Init
         import ActionInit
-        import FuncLayout
         import ActionBind
 
         Init.menu_init(self)
