@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QAction, QFile
     QFontDialog, QColorDialog, QVBoxLayout, QWidget, QFileDialog, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, \
     QHBoxLayout, QVBoxLayout
+import TextEdit
 
 
 class MainWindow(QMainWindow, QWidget):
@@ -80,6 +81,13 @@ class MainWindow(QMainWindow, QWidget):
         Init.status_bar_init(self)
         ActionInit.action_init(self)
         ActionBind.action_bind(self)
+
+    def empty(self):
+        wid_list = self.mdiArea.subWindowList()
+        if len(wid_list) == 0:
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ class TextEdit(QTextEdit):
         super(TextEdit, self).__init__(parent)
         self.setAttribute(Qt.WA_DeleteOnClose, True)
         self.filename = filename
-        if self.filename == " ":
+        if self.filename == "":
             self.filename = "Untitled-{0}".format(TextEdit.Id)
             TextEdit.Id += 1
         self.document().setModified(False)
