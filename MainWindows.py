@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QAction, QFile
     QFontDialog, QColorDialog, QVBoxLayout, QWidget, QFileDialog, QMessageBox
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton, \
     QHBoxLayout, QVBoxLayout
-import TextEdit
+
 
 
 class MainWindow(QMainWindow, QWidget):
@@ -71,14 +71,19 @@ class MainWindow(QMainWindow, QWidget):
         self.mime_data = QMimeData()
         self.clipBoard = QApplication.clipboard()
 
-        # ***************控件初始化***************
+        # ***************初始化***************
         import Init
+        import SearchUI
         import ActionInit
         import ActionBind
 
+        # 控件初始化
         Init.menu_init(self)
         Init.toolbar_init(self)
         Init.status_bar_init(self)
+        SearchUI.SearchBoxCreator.search_box_init(self)
+
+        # 动作初始化与连接
         ActionInit.action_init(self)
         ActionBind.action_bind(self)
 

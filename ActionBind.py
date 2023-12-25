@@ -2,6 +2,8 @@ from MainWindows import MainWindow
 import FuncLayout
 import FuncFile
 import FuncEdit
+import FuncAbout
+import FuncSearch
 
 
 # 本文件将功能函数与按钮绑定起来
@@ -57,3 +59,16 @@ def action_bind(window: MainWindow):
     # 颜色设置
     window.action_color.triggered.connect(lambda: FuncEdit.func_color(window))
     window.action_color.setShortcut('Ctrl+R')
+
+    # *******************关于功能函数——跳到本项目的Github**************************
+    # 关于 无快捷键
+    window.action_about.triggered.connect(lambda: FuncAbout.func_about())
+
+    # *******************搜索相关功能函数——debug 12/25**************************
+    window.action_search.triggered.connect(lambda: FuncSearch.func_search(window))
+    window.action_search.setShortcut('Ctrl+F')
+    # search box内功能函数绑定
+    window.SearchBox.search_button.clicked.connect(FuncSearch.search_word(window))
+    window.SearchBox.replace_button.clicked.connect(FuncSearch.replace_word(window))
+
+

@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import QFontDialog, QColorDialog
 
 from MainWindows import MainWindow
-import TextEdit
 
 
 # 本文件是编辑相关功能实现
