@@ -8,7 +8,6 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButto
     QHBoxLayout, QVBoxLayout
 
 
-
 class MainWindow(QMainWindow, QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()

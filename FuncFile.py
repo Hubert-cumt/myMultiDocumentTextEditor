@@ -31,7 +31,7 @@ def func_open(window: MainWindow):
                 print(file.filename, filename)
                 break
         else:
-            window.load_file(filename)
+            load_file(window, filename)
             if window.layout_type == 0:
                 FuncLayout.func_vertical(window)
             elif window.layout_type == 1:
