@@ -1,9 +1,12 @@
+import FuncDo
 from MainWindows import MainWindow
 import FuncLayout
 import FuncFile
 import FuncEdit
 import FuncAbout
 import FuncSearch
+import FuncAlign
+import FuncDo
 
 
 # 本文件将功能函数与按钮绑定起来
@@ -68,7 +71,21 @@ def action_bind(window: MainWindow):
     window.action_search.triggered.connect(lambda: FuncSearch.func_search(window))
     window.action_search.setShortcut('Ctrl+F')
     # search box内功能函数绑定
-    window.SearchBox.search_button.clicked.connect(FuncSearch.search_word(window))
-    window.SearchBox.replace_button.clicked.connect(FuncSearch.replace_word(window))
+    window.SearchBox.search_button.clicked.connect(lambda: FuncSearch.search_word(window))
+    window.SearchBox.replace_button.clicked.connect(lambda: FuncSearch.replace_word(window))
 
+    # *******************文件相关功能函数**************************
+    # 左对齐
+    window.action_left.triggered.connect(lambda: FuncAlign.func_left(window))
 
+    # 右对齐
+    window.action_right.triggered.connect(lambda: FuncAlign.func_right(window))
+
+    # 居中对齐
+    window.action_center.triggered.connect(lambda: FuncAlign.func_center(window))
+
+    # *******************撤销相关功能函数**************************
+    # undo
+    window.action_undo.triggered.connect(lambda: FuncDo.func_undo(window))
+    # redo
+    window.action_redo.triggered.connect(lambda: FuncDo.func_redo(window))
